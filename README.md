@@ -8,16 +8,16 @@ Una landing page moderna y de alto rendimiento diseñada para un salón de belle
 
 Visita el sitio: **[https://aura-beauty.pages.dev/](https://aura-beauty.pages.dev/)**
 
-## 🏆 Puntuaciones Lighthouse
+## 🏆 Puntuaciones Lighthouse (PageSpeed Insights)
 
-El sitio ha sido optimizado para alcanzar métricas de excelencia en Google Lighthouse:
+El sitio ha sido optimizado para alcanzar métricas de excelencia en [Google PageSpeed Insights](https://pagespeed.web.dev/):
 
-| Categoría             | Puntuación |
-| --------------------- | :--------: |
-| 🟢 **SEO**            |  **100**   |
-| 🟢 **Best Practices** |  **100**   |
-| 🟢 **Accessibility**  |   **95**   |
-| 🟢 **Performance**    |  **90+**   |
+| Categoría | Puntuación |
+|-----------|:----------:|
+| 🟢 **SEO** | **100** |
+| 🟢 **Best Practices** | **100** |
+| 🟢 **Performance** | **97** |
+| 🟢 **Accessibility** | **95** |
 
 ## 🛠️ Tecnologías
 
@@ -42,7 +42,7 @@ Si quieres clonar y correr este proyecto localmente:
 
 ```bash
 # 1. Clonar el repositorio
-git clone [https://github.com/HernandezDev/aura-beauty.git](https://github.com/HernandezDev/aura-beauty.git)
+git clone https://github.com/HernandezDev/aura-beauty.git
 
 # 2. Entrar al directorio
 cd aura-beauty
