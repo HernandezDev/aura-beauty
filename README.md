@@ -26,7 +26,7 @@ El sitio ha sido optimizado para alcanzar métricas de excelencia en Google Ligh
 - **Despliegue:** [Cloudflare Pages](https://pages.cloudflare.com/)
 - **Iconos:** Svelte-Lucide
 - **Formulario:** Integración con Formspree
-- **Fuentes:** Google Fonts (Lora & Manrope) optimizadas con `font-display: swap`
+- **Fuentes:** fontsource.org (Lora & Manrope)
 
 ## ✨ Características
 
