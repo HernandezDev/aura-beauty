@@ -13,12 +13,13 @@ Visita el sitio: **[https://aura-beauty.pages.dev/](https://aura-beauty.pages.de
 El sitio ha sido optimizado para alcanzar métricas de excelencia.
 *Auditoría realizada en Enero 2026.* [Ver reporte en vivo](https://pagespeed.web.dev/analysis/https-aura-beauty-pages-dev/f1nvxx6wqx?form_factor=mobile)
 
-| Categoría | Puntuación |
-|-----------|:----------:|
-| 🟢 **SEO** | **100** |
-| 🟢 **Best Practices** | **100** |
-| 🟢 **Performance** | **97** |
-| 🟢 **Accessibility** | **95** |
+| Categoría | Móvil 📱 | Escritorio 💻 |
+|-----------|:--------:|:------------:|
+| 🟢 **SEO** | **100** | **100** |
+| 🟢 **Best Practices** | **100** | **100** |
+| 🟢 **Performance** | **97** | **100** |
+| 🟢 **Accessibility** | **95** | **96** |
+
 ## 🛠️ Tecnologías
 
 - **Framework:** [SvelteKit](https://kit.svelte.dev/) (SSR & Prerendering)
