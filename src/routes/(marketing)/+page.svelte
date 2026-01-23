@@ -35,6 +35,15 @@
   const auraHeaderClasses = "bg-gray-900/95 shadow-lg";
 </script>
 
+<svelte:head>
+  <title>Aura Beauty | Estética y Bienestar</title>
+
+  <meta
+    name="description"
+    content="Reserva tu turno en Aura Beauty. Especialistas en manicura, masajes y tratamientos faciales para resaltar tu belleza natural."
+  />
+</svelte:head>
+
 <HeaderNav
   routes={ROUTES}
   logo={Logo}
