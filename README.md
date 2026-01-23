@@ -24,9 +24,9 @@ El sitio ha sido optimizado para alcanzar métricas de excelencia en Google Ligh
 - **Framework:** [SvelteKit](https://kit.svelte.dev/) (SSR & Prerendering)
 - **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
 - **Despliegue:** [Cloudflare Pages](https://pages.cloudflare.com/)
-- **Iconos:** Svelte-Lucide / FontAwesome
+- **Iconos:** Svelte-Lucide
 - **Formulario:** Integración con Formspree
-- **Fuentes:** Google Fonts (Lora & Manrope) optimizadas con `font-display: swap`
+- **Fuentes:** fontsource.org (Lora & Manrope)
 
 ## ✨ Características
 
@@ -34,7 +34,7 @@ El sitio ha sido optimizado para alcanzar métricas de excelencia en Google Ligh
 - **Animaciones Suaves:** Transiciones de entrada usando Svelte transitions (`fly`).
 - **Imágenes Optimizadas:** Uso de formatos modernos (WebP) y estrategias de carga (`fetchpriority`, `loading="eager"`).
 - **Accesibilidad (a11y):** Navegación por teclado, etiquetas ARIA y jerarquía semántica correcta.
-- **SEO Técnico:** Meta etiquetas dinámicas, Open Graph y Sitemap.
+- **SEO On-Page:** Configuración correcta de títulos y meta-descripciones para indexación en Google.
 
 ## 📦 Instalación y Desarrollo
 
