@@ -59,7 +59,7 @@
           </p>
 
           <div class="mt-auto border-t border-gray-200 pt-4">
-            <h4 class="font-bold text-gray-900">{review.name}</h4>
+            <h3 class="font-bold text-gray-900">{review.name}</h3>
             <span
               class="text-xs text-[#C9A24D] font-medium tracking-wide uppercase"
             >
