@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+/* Fuentes instaladas */
+@import "@fontsource-variable/manrope";
+@import "@fontsource-variable/lora";
+@import "@fontsource-variable/lora/wght-italic.css";
+
+/* Configuración del Tema */
+@theme {
+  --font-sans: "Manrope Variable", sans-serif;
+  --font-serif: "Lora Variable", serif;
+
+  /* Definimos tu color dorado aquí */
+  --color-gold: #c9a24d;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* scroll-padding-top: 80px; */
+}
+
+/* 👇 ESTO ES LO NUEVO: FORZAR EL COLOR DORADO EN FORMULARIOS 👇 */
+@layer base {
+  [type="text"],
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="week"],
+  [multiple],
+  textarea,
+  select {
+    /* 1. Quitamos outline-none para borrar el anillo azul del navegador.
+       2. Usamos el signo "!" Despues del nombre para forzar la prioridad.
+    */
+    @apply focus:outline-none focus:ring-gold! focus:border-gold!;
+
+    /* Estilos base */
+    @apply bg-neutral-900 border-neutral-700 text-neutral-300;
+  }
+}
