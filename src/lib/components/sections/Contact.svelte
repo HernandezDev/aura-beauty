@@ -81,7 +81,7 @@
               <MapPinIcon />
             </div>
             <div>
-              <h4 class="font-bold text-lg">Nuestra Ubicación</h4>
+              <h3 class="font-bold text-lg">Nuestra Ubicación</h3>
               <p class="text-neutral-400">
                 Av. Santa Rosa 1234, Ituzaingó<br />Buenos Aires, Argentina
               </p>
@@ -93,7 +93,7 @@
               <PhoneIcon />
             </div>
             <div>
-              <h4 class="font-bold text-lg">Teléfono & WhatsApp</h4>
+              <h3 class="font-bold text-lg">Teléfono & WhatsApp</h3>
               <p class="text-neutral-400">+54 11 1234-5678</p>
             </div>
           </div>
@@ -103,7 +103,7 @@
               <ClockIcon />
             </div>
             <div>
-              <h4 class="font-bold text-lg">Horarios de Atención</h4>
+              <h3 class="font-bold text-lg">Horarios de Atención</h3>
               <p class="text-neutral-400">Lun - Sáb: 09:00 - 20:00</p>
             </div>
           </div>
@@ -113,6 +113,7 @@
           <a
             href="https://instagram.com/"
             target="_blank"
+            aria-label="Instagram"
             class="p-3 border border-neutral-700 rounded-full hover:bg-[#C9A24D] hover:border-[#C9A24D] hover:text-white transition-all duration-300"
           >
             <InstagramIcon />
@@ -120,12 +121,14 @@
           <a
             href="https://facebook.com/"
             target="_blank"
+            aria-label="Facebook"
             class="p-3 border border-neutral-700 rounded-full hover:bg-[#C9A24D] hover:border-[#C9A24D] hover:text-white transition-all duration-300"
           >
             <FacebookIcon />
           </a>
           <a
             href="mailto:contacto@aurabeauty.com"
+            aria-label="Email"
             class="p-3 border border-neutral-700 rounded-full hover:bg-[#C9A24D] hover:border-[#C9A24D] hover:text-white transition-all duration-300"
           >
             <MailIcon />
