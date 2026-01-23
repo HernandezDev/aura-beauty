@@ -138,7 +138,11 @@
       >
         <h3 class="text-2xl font-serif mb-6">Envíanos un mensaje</h3>
 
-        <form class="space-y-6">
+        <form
+          action="https://formspree.io/f/xnjpjbpk"
+          method="POST"
+          class="space-y-6"
+        >
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="space-y-2">
               <label for="name" class="text-sm font-medium text-neutral-400"
@@ -147,10 +151,13 @@
               <input
                 type="text"
                 id="name"
+                name="nombre"
                 class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:border-[#C9A24D] transition-colors placeholder-neutral-600"
                 placeholder="Tu nombre"
+                required
               />
             </div>
+
             <div class="space-y-2">
               <label for="phone" class="text-sm font-medium text-neutral-400"
                 >Teléfono</label
@@ -158,6 +165,7 @@
               <input
                 type="tel"
                 id="phone"
+                name="telefono"
                 class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:border-[#C9A24D] transition-colors placeholder-neutral-600"
                 placeholder="+54 11..."
               />
@@ -171,8 +179,10 @@
             <input
               type="email"
               id="email"
+              name="email"
               class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:border-[#C9A24D] transition-colors placeholder-neutral-600"
               placeholder="tu@email.com"
+              required
             />
           </div>
 
@@ -183,6 +193,7 @@
             <div class="relative">
               <select
                 id="service"
+                name="servicio"
                 bind:value={selectedService}
                 onchange={updateUrl}
                 class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:border-[#C9A24D] transition-colors appearance-none text-neutral-300"
@@ -192,10 +203,6 @@
                   <option value={option}>{option}</option>
                 {/each}
               </select>
-
-              <div
-                class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-neutral-500"
-              ></div>
             </div>
           </div>
 
@@ -205,6 +212,7 @@
             >
             <textarea
               id="message"
+              name="mensaje"
               rows="4"
               class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-3 focus:outline-none focus:border-[#C9A24D] transition-colors resize-none placeholder-neutral-600"
               placeholder="¿Alguna preferencia de horario?"
