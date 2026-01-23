@@ -10,7 +10,8 @@ Visita el sitio: **[https://aura-beauty.pages.dev/](https://aura-beauty.pages.de
 
 ## 🏆 Puntuaciones Lighthouse (PageSpeed Insights)
 
-El sitio ha sido optimizado para alcanzar métricas de excelencia en [Google PageSpeed Insights](https://pagespeed.web.dev/analysis/https-aura-beauty-pages-dev/f1nvxx6wqx?form_factor=mobile)
+El sitio ha sido optimizado para alcanzar métricas de excelencia.
+*Auditoría realizada en Enero 2026.* [Ver reporte en vivo](https://pagespeed.web.dev/analysis/https-aura-beauty-pages-dev/f1nvxx6wqx?form_factor=mobile)
 
 | Categoría | Puntuación |
 |-----------|:----------:|
@@ -18,7 +19,6 @@ El sitio ha sido optimizado para alcanzar métricas de excelencia en [Google Pag
 | 🟢 **Best Practices** | **100** |
 | 🟢 **Performance** | **97** |
 | 🟢 **Accessibility** | **95** |
-
 ## 🛠️ Tecnologías
 
 - **Framework:** [SvelteKit](https://kit.svelte.dev/) (SSR & Prerendering)
