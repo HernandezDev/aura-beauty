@@ -10,7 +10,7 @@ Visita el sitio: **[https://aura-beauty.pages.dev/](https://aura-beauty.pages.de
 
 ## 🏆 Puntuaciones Lighthouse (PageSpeed Insights)
 
-El sitio ha sido optimizado para alcanzar métricas de excelencia en [Google PageSpeed Insights](https://pagespeed.web.dev/):
+El sitio ha sido optimizado para alcanzar métricas de excelencia en [Google PageSpeed Insights](https://pagespeed.web.dev/analysis/https-aura-beauty-pages-dev/f1nvxx6wqx?form_factor=mobile)
 
 | Categoría | Puntuación |
 |-----------|:----------:|
