@@ -40,10 +40,12 @@
         <div class="flex gap-4">
           <a
             href="https://instagram.com/"
+            aria-label="Instagram"
             class="hover:text-white transition-colors"><InstagramIcon /></a
           >
           <a
             href="https://facebook.com/"
+            aria-label="Facebook"
             class="hover:text-white transition-colors"><FacebookIcon /></a
           >
         </div>
