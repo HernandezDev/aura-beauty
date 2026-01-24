@@ -6,13 +6,13 @@
 
   interface Props {
     class?: string;
-    sectionId?: string;
+    id?: string;
   }
 
   let {
     class: className = "",
 
-    sectionId = "home",
+    id = "home",
   }: Props = $props();
 
   let ready = $state(false);
@@ -21,7 +21,7 @@
   });
 </script>
 
-<section id={sectionId} class="w-full -mt-20 {className}">
+<section {id} class="w-full -mt-20 {className}">
   <div class="relative w-full h-screen min-h-150 overflow-hidden shadow-xl">
     <picture>
       <source

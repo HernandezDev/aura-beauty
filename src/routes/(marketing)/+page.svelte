@@ -1,6 +1,5 @@
 <script lang="ts">
   import HeaderNav from "$lib/components/layout/Navbar.svelte";
-  import Section from "$lib/components/ui/Section.svelte";
   import Logo from "$lib/components/ui/Logo.svelte";
   import IconHome from "~icons/lucide/house";
   import IconServices from "~icons/lucide/sparkles";
@@ -14,6 +13,10 @@
   import Reviews from "$lib/components/sections/Reviews.svelte";
   import Contact from "$lib/components/sections/Contact.svelte";
   import Footer from "$lib/components/ui/Footer.svelte";
+  const SEO = {
+    title: "Aura Beauty | Estética y Bienestar",
+    description: "Reserva tu turno en Aura Beauty...",
+  };
   const ROUTES: Routes = [
     { id: "home", label: "Inicio", href: "#home", icon: IconHome },
     {
@@ -36,12 +39,8 @@
 </script>
 
 <svelte:head>
-  <title>Aura Beauty | Estética y Bienestar</title>
-
-  <meta
-    name="description"
-    content="Reserva tu turno en Aura Beauty. Especialistas en manicura, masajes y tratamientos faciales para resaltar tu belleza natural."
-  />
+  <title>{SEO.title}</title>
+  <meta name="description" content={SEO.description} />
 </svelte:head>
 
 <HeaderNav
@@ -52,7 +51,7 @@
   classNameHeader={auraHeaderClasses}
 />
 <main>
-  <Hero sectionId="home"></Hero>
+  <Hero />
   <Services />
   <About />
   <Reviews />
