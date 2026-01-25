@@ -222,6 +222,14 @@
             ></textarea>
           </div>
 
+          <input
+            type="text"
+            name="_gotcha"
+            class="absolute -left-1250"
+            tabindex="-1"
+            autocomplete="off"
+          />
+
           <button
             type="submit"
             class="w-full bg-[#C9A24D] text-neutral-900 font-bold py-4 rounded-lg hover:bg-white transition-colors duration-300 shadow-lg mt-4"
