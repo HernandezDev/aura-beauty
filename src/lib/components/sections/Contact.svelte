@@ -221,7 +221,7 @@
               placeholder="¿Alguna preferencia de horario?"
             ></textarea>
           </div>
-          <label class="hidden" for="text"
+          <label class="sr-only" for="text"
             >Si eres humano, deja este campo vacío:</label
           >
           <input
