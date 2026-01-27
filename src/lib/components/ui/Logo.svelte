@@ -1,7 +1,7 @@
 <script lang="ts">
   import { cn } from "$lib/utils";
   let { class: className = undefined, ...rest } = $props();
-  // colocar siempre class={cn("select-none fill-current", className)}
+  // colocar siempre class={cn("select-none fill-current", className)}{...rest}
   // en la etiqueta svg para que funcione fill-current
 </script>
 
