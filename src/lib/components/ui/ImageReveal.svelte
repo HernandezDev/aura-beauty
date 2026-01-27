@@ -1,33 +1,58 @@
 <script lang="ts">
   import { cn } from "$lib/utils";
+  import { viewport } from "$lib/actions/viewport";
+  import { fade } from "svelte/transition"; // Tus transiciones favoritas
 
   interface Props {
     src: string;
     alt: string;
     class?: string;
-    width?: string | number; // Importante para evitar saltos de diseño (CLS)
-    height?: string | number;
+    width: number;
+    height: number;
   }
 
   let { src, alt, class: className, width, height }: Props = $props();
 
-  let isLoaded = $state(false);
+  let visible = $state(false);
+
+  // ESTA ES LA MAGIA 🪄
+  // Esta función carga la imagen en memoria (sin pintarla) y avisa cuando está lista.
+  const loadImage = (url: string) => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.src = url;
+      img.onload = () => resolve(url); // ¡Listo!
+      img.onerror = reject; // Falló
+    });
+  };
 </script>
 
-<div class={cn("relative overflow-hidden bg-gray-100", className)}>
-  <img
-    {src}
-    {alt}
-    {width}
-    {height}
-    loading="lazy"
-    decoding="async"
-    onload={() => (isLoaded = true)}
-    class={cn(
-      "w-full h-full object-cover transition-all duration-700 ease-out will-change-opacity",
-      // Si cargó, opacidad 1 y escala normal.
-      // Si no, opacidad 0 y ligeramente zoomin (efecto premium).
-      isLoaded ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-105 blur-sm",
-    )}
-  />
+<div
+  use:viewport={() => (visible = true)}
+  class={cn("relative w-full bg-gray-200 overflow-hidden", className)}
+  style="aspect-ratio: {width} / {height};"
+>
+  {#if visible}
+    {#await loadImage(src)}
+      <div
+        class="absolute inset-0 flex items-center justify-center text-gray-400"
+      ></div>
+    {:then _}
+      <img
+        {src}
+        {alt}
+        {width}
+        {height}
+        decoding="async"
+        class="absolute inset-0 w-full h-full object-cover"
+        in:fade={{ duration: 600 }}
+      />
+    {:catch}
+      <div
+        class="absolute inset-0 flex items-center justify-center bg-red-50 text-red-400 text-sm"
+      >
+        Error
+      </div>
+    {/await}
+  {/if}
 </div>
