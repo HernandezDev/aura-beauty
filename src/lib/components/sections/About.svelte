@@ -22,7 +22,6 @@
             <ImageReveal
               src={staffImg}
               alt="Equipo de profesionales de Aura Beauty"
-              class="w-full h-full object-cover"
             />
           </div>
         </div>

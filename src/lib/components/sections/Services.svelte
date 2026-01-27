@@ -2,6 +2,7 @@
   // 1. IMPORTS ESTRUCTURALES
   import Section from "$lib/components/ui/Section.svelte";
   import Container from "$lib/components/ui/Container.svelte";
+  import ImageReveal from "$lib/components/ui/ImageReveal.svelte";
 
   // 3. IMPORTS DE IMÁGENES
   import peluqueriaImg from "$lib/assets/images/peluqueria.webp";
@@ -88,11 +89,10 @@
             class="group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 bg-gray-50 h-full flex flex-col"
           >
             <div class="aspect-video overflow-hidden">
-              <img
+              <ImageReveal
                 src={service.image}
                 alt={service.title}
                 class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                loading="lazy"
               />
             </div>
 

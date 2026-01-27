@@ -7,8 +7,8 @@
     src: string;
     alt: string;
     class?: string;
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
   }
 
   let { src, alt, class: className, width, height }: Props = $props();
@@ -29,8 +29,10 @@
 
 <div
   use:viewport={() => (visible = true)}
-  class={cn("relative w-full bg-gray-200 overflow-hidden", className)}
-  style="aspect-ratio: {width} / {height};"
+  class={cn(
+    "relative w-full h-full bg-gray-200 overflow-hidden aspect-auto",
+    className,
+  )}
 >
   {#if visible}
     {#await loadImage(src)}
