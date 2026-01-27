@@ -20,13 +20,6 @@
   import LaserIcon from "~icons/lucide/zap";
   import ArrowRightIcon from "~icons/lucide/arrow-right";
 
-  // Importamos la acción que acabamos de crear
-  import { viewport } from "$lib/actions/viewport";
-  // Importamos la animación nativa de Svelte
-  import { fly } from "svelte/transition";
-
-  let visible = $state(false);
-
   // 5. DATOS
   const services = [
     {
@@ -88,56 +81,47 @@
       </p>
     </div>
 
-    <div
-      use:viewport={() => (visible = true)}
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
-    >
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
       {#each services as service, i}
         <div class="h-full">
-          {#if visible}
-            <div
-              in:fly={{ y: 50, duration: 600, delay: i * 120 }}
-              class="group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 bg-gray-50 h-full flex flex-col"
-            >
-              <div class="aspect-video overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading="lazy"
-                />
-              </div>
-
-              <div class="flex mt-6 ml-2">
-                <service.icon class="w-8 h-8 mx-2 group-hover:text-[#C9A24D]" />
-                <h3
-                  class="font-serif text-2xl text-gray-900 mb-3 group-hover:text-[#C9A24D] transition-colors"
-                >
-                  {service.title}
-                </h3>
-              </div>
-
-              <p
-                class="text-gray-600 font-light text-sm leading-relaxed mb-6 grow ml-6 mr-4"
-              >
-                {service.description}
-              </p>
-              <div class="pt-4 border-t border-gray-100 mt-auto ml-6 mb-4">
-                <a
-                  href="?service={encodeURIComponent(service.title)}#contact"
-                  class="text-[#C9A24D] font-bold text-xs tracking-[0.15em] uppercase hover:text-black transition-colors flex items-center gap-2 group"
-                >
-                  Reservar Cita
-                  <ArrowRightIcon
-                    class="transform transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </a>
-              </div>
+          <div
+            class="group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-500 bg-gray-50 h-full flex flex-col"
+          >
+            <div class="aspect-video overflow-hidden">
+              <img
+                src={service.image}
+                alt={service.title}
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
             </div>
-          {:else}
-            <!-- placeholder to preserve layout before enter -->
-            <div class="h-full"></div>
-          {/if}
+
+            <div class="flex mt-6 ml-2">
+              <service.icon class="w-8 h-8 mx-2 group-hover:text-[#C9A24D]" />
+              <h3
+                class="font-serif text-2xl text-gray-900 mb-3 group-hover:text-[#C9A24D] transition-colors"
+              >
+                {service.title}
+              </h3>
+            </div>
+
+            <p
+              class="text-gray-600 font-light text-sm leading-relaxed mb-6 grow ml-6 mr-4"
+            >
+              {service.description}
+            </p>
+            <div class="pt-4 border-t border-gray-100 mt-auto ml-6 mb-4">
+              <a
+                href="?service={encodeURIComponent(service.title)}#contact"
+                class="text-[#C9A24D] font-bold text-xs tracking-[0.15em] uppercase hover:text-black transition-colors flex items-center gap-2 group"
+              >
+                Reservar Cita
+                <ArrowRightIcon
+                  class="transform transition-transform duration-300 group-hover:translate-x-1"
+                />
+              </a>
+            </div>
+          </div>
         </div>
       {/each}
     </div>
