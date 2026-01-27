@@ -213,7 +213,6 @@
             <label for="message" class="text-sm font-medium text-neutral-400"
               >Mensaje (Opcional)</label
             >
-            <!-- mensaje  -->
             <textarea
               id="message"
               name="mensaje"
