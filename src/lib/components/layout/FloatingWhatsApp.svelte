@@ -8,7 +8,7 @@
 
   // --- CONFIGURACIÓN ---
   // Tu número en Base64 (Recuerda generarlo con btoa('54911...') en la consola)
-  const ENCODED_NUMBER = "NTQ5MTEzMzMzNDQ0NA==";
+  const ENCODED_NUMBER = "NTQxMTM4NDY4Mjcx";
   const WHATSAPP_MESSAGE = "Hola Aura! 👋 Quisiera consultar por un turno.";
 
   onMount(() => {
