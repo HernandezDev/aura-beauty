@@ -1,7 +1,6 @@
 <script>
   import { page } from "$app/state";
   import Logo from "$lib/components/graphics/Logo.svelte";
-  import favicon from "$lib/assets/favicon.svg";
 </script>
 
 <div
