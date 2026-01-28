@@ -1,6 +1,6 @@
 <script lang="ts">
   import HeaderNav from "$lib/components/layout/Navbar.svelte";
-  import Logo from "$lib/components/ui/Logo.svelte";
+  import Logo from "$lib/components/graphics/Logo.svelte";
   import IconHome from "~icons/lucide/house";
   import IconServices from "~icons/lucide/sparkles";
   import IconAbout from "~icons/lucide/users";
@@ -12,7 +12,8 @@
   import About from "$lib/components/sections/About.svelte";
   import Reviews from "$lib/components/sections/Reviews.svelte";
   import Contact from "$lib/components/sections/Contact.svelte";
-  import Footer from "$lib/components/ui/Footer.svelte";
+  import Footer from "$lib/components/layout/Footer.svelte";
+  import Whatsapp from "$lib/components/layout/FloatingWhatsApp.svelte";
   const SEO = {
     title: "Aura Beauty | Estética y Bienestar",
     description: "Reserva tu turno en Aura Beauty...",
@@ -50,6 +51,7 @@
   classNameMenu={auraMenuClasses}
   classNameHeader={auraHeaderClasses}
 />
+<Whatsapp />
 <main>
   <Hero />
   <Services />
