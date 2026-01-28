@@ -2,6 +2,7 @@
 // for information about these interfaces
 // tipos generados por unplugin-icons
 /// <reference types="unplugin-icons/types/svelte" />
+/// <reference types="@sveltejs/enhanced-img" />
 declare global {
 	namespace App {
 		// interface Error {}

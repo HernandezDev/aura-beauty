@@ -1,6 +1,6 @@
 <script lang="ts">
-  import heroDesktop from "$lib/assets/images/hero-bg.webp";
-  import heroMobile from "$lib/assets/images/hero-bg-mobile.webp";
+  import heroDesktop from "$lib/assets/images/hero-bg.webp?enhanced";
+  import heroMobile from "$lib/assets/images/hero-bg-mobile.webp?enhanced";
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
 
@@ -24,13 +24,26 @@
 <section {id} class="w-full -mt-20 {className}">
   <div class="relative w-full h-screen min-h-150 overflow-hidden shadow-xl">
     <picture>
+      <!-- Móvil: AVIF primero, luego WebP -->
       <source
-        srcset={heroMobile}
         media="(max-width: 768px)"
+        srcset={heroMobile.sources.avif}
+        type="image/avif"
+      />
+      <source
+        media="(max-width: 768px)"
+        srcset={heroMobile.sources.webp}
         type="image/webp"
       />
+
+      <!-- Escritorio: AVIF primero, luego WebP -->
+      <source srcset={heroDesktop.sources.avif} type="image/avif" />
+      <source srcset={heroDesktop.sources.webp} type="image/webp" />
+
       <img
-        src={heroDesktop}
+        src={heroDesktop.img.src}
+        width={heroDesktop.img.w}
+        height={heroDesktop.img.h}
         alt="Spa Background"
         class="absolute inset-0 w-full h-full object-cover object-center"
         loading="eager"
