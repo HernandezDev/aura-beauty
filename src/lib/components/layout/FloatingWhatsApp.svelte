@@ -5,16 +5,16 @@
   let href = $state("#");
   let visible = $state(false);
 
-  // 1. NÚMERO CON EL '9' (Formato Argentina Móvil)
-  // 5491138468271 en Base64
-  const ENCODED_NUMBER = "NTQ5MTEzODQ2ODI3MQ==";
+  // 1. generar  numero invertido y codificado en base64 para ofuscarlo
+  // btoa('mi_numero'.split('').reverse().join(''))
+  const ENCODED_NUMBER = "MTcyODY0ODMxMTk0NQ==";
 
   // 2. USAMOS EL EMOJI DIRECTO (Ya vimos que tu log lo saca bien)
   const WHATSAPP_MESSAGE = "Hola Aura! 👋 Quisiera consultar por un turno.";
 
   onMount(() => {
     const timer = setTimeout(() => {
-      const phone = atob(ENCODED_NUMBER);
+      const phone = atob(ENCODED_NUMBER).split("").reverse().join("");
       const message = encodeURIComponent(WHATSAPP_MESSAGE);
 
       // 3. CAMBIO CLAVE: Usamos api.whatsapp.com en lugar de wa.me
