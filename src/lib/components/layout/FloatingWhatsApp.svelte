@@ -1,28 +1,30 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  // Importamos el gráfico "tonto" desde su nueva casa
   import WhatsappIcon from "$lib/components/graphics/Whatsapp.svelte";
-  import mensajes from "$lib/components/layout/mensajes.json";
+
   let href = $state("#");
   let visible = $state(false);
 
-  // --- CONFIGURACIÓN ---
-  // Tu número en Base64 (Recuerda generarlo con btoa('54911...') en la consola)
-  const ENCODED_NUMBER = "NTQxMTM4NDY4Mjcx";
-  const WHATSAPP_MESSAGE = mensajes.whatsapp_aura;
+  // 1. NÚMERO CON EL '9' (Formato Argentina Móvil)
+  // 5491138468271 en Base64
+  const ENCODED_NUMBER = "NTQ5MTEzODQ2ODI3MQ==";
+
+  // 2. USAMOS EL EMOJI DIRECTO (Ya vimos que tu log lo saca bien)
+  const WHATSAPP_MESSAGE = "Hola Aura! 👋 Quisiera consultar por un turno.";
 
   onMount(() => {
-    // Retraso táctico: Evita bloquear el hilo principal al cargar
-    // y oculta el enlace de los crawlers básicos
     const timer = setTimeout(() => {
       const phone = atob(ENCODED_NUMBER);
       const message = encodeURIComponent(WHATSAPP_MESSAGE);
 
-      href = `https://wa.me/${phone}?text=${message}`;
+      // 3. CAMBIO CLAVE: Usamos api.whatsapp.com en lugar de wa.me
+      // Esto evita que el navegador 'limpie' los códigos antes de mandar el mensaje.
+      href = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
+
       visible = true;
     }, 1500);
 
-    return () => clearTimeout(timer); // Limpieza de memoria
+    return () => clearTimeout(timer);
   });
 </script>
 
