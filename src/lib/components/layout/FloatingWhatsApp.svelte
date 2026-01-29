@@ -2,14 +2,14 @@
   import { onMount } from "svelte";
   // Importamos el gráfico "tonto" desde su nueva casa
   import WhatsappIcon from "$lib/components/graphics/Whatsapp.svelte";
-
+  import mensajes from "$lib/components/layout/mensajes.json";
   let href = $state("#");
   let visible = $state(false);
 
   // --- CONFIGURACIÓN ---
   // Tu número en Base64 (Recuerda generarlo con btoa('54911...') en la consola)
   const ENCODED_NUMBER = "NTQxMTM4NDY4Mjcx";
-  const WHATSAPP_MESSAGE = "Hola Aura! 👋 Quisiera consultar por un turno.";
+  const WHATSAPP_MESSAGE = mensajes.whatsapp_aura;
 
   onMount(() => {
     // Retraso táctico: Evita bloquear el hilo principal al cargar
