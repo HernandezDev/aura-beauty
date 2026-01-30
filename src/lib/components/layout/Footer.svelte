@@ -4,6 +4,7 @@
   import FacebookIcon from "~icons/lucide/facebook";
 
   const currentYear = new Date().getFullYear();
+  const horaGeneracion = new Date().toLocaleTimeString();
 </script>
 
 <footer class="bg-black text-neutral-400 py-12 border-t border-neutral-800">
@@ -14,7 +15,7 @@
           AURA BEAUTY
         </h4>
         <p class="text-sm">
-          &copy; {currentYear} Todos los derechos reservados.
+          &copy; {currentYear} Todos los derechos reservados. Generado a las {horaGeneracion}.
         </p>
       </div>
 
