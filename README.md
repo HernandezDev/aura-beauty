@@ -17,8 +17,8 @@ El sitio ha sido optimizado para alcanzar métricas de excelencia.
 |-----------|:--------:|:------------:|
 | 🟢 **SEO** | **100** | **100** |
 | 🟢 **Best Practices** | **100** | **100** |
-| 🟢 **Performance** | **97** | **100** |
-| 🟢 **Accessibility** | **95** | **96** |
+| 🟢 **Performance** | **99** | **100** |
+| 🟢 **Accessibility** | **96** | **96** |
 
 ## 🛠️ Tecnologías
 
