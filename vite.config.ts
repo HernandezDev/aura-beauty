@@ -13,5 +13,8 @@ export default defineConfig({
     ],server: {
         // para probar con ngrok
         //allowedHosts: true
+    },build: {
+        sourcemap: false,
+        minify: true
     }
  });
