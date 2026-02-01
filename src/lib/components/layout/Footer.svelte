@@ -4,6 +4,8 @@
   import FacebookIcon from "~icons/lucide/facebook";
 
   const currentYear = new Date().getFullYear();
+  // Para depuración de generación de pie de página
+  //const horaGeneracion = new Date().toLocaleTimeString();
 </script>
 
 <footer class="bg-black text-neutral-400 py-12 border-t border-neutral-800">
