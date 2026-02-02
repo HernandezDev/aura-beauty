@@ -8,11 +8,11 @@
   //const horaGeneracion = new Date().toLocaleTimeString();
 </script>
 
-<footer class="bg-black text-neutral-400 py-12 border-t border-neutral-800">
-  <Container class=" md:flex md:flex-row md:flex-nowhrap">
-    <div
-      class="flex flex-1 flex-col md:flex-row justify-between items-center gap-6"
-    >
+<footer
+  class="bg-black text-neutral-400 py-12 border-t border-neutral-800 flex-nowrap md:pr-14"
+>
+  <Container class="">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
       <div class="text-center md:text-left">
         <h4 class="text-white font-serif text-lg tracking-wide mb-1">
           AURA BEAUTY
@@ -48,9 +48,6 @@
           >
         </p>
       </div>
-    </div>
-    <div class="md:w-14 lg:w-10 xl:w-8 2xl:w-0 shrink">
-      <!-- Espaciador para diseño -->
     </div>
   </Container>
 </footer>
