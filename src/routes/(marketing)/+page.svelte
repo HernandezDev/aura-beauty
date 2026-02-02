@@ -19,16 +19,16 @@
     description: "Reserva tu turno en Aura Beauty...",
   };
   const ROUTES: Routes = [
-    { id: "home", label: "Inicio", href: "#home", icon: IconHome },
+    { id: "home", label: "Inicio", href: "/#home", icon: IconHome },
     {
       id: "services",
       label: "Servicios",
-      href: "#services",
+      href: "/#services",
       icon: IconServices,
     },
-    { id: "about", label: "Nosotros", href: "#about", icon: IconAbout },
-    { id: "reviews", label: "Reseñas", href: "#reviews", icon: IconReviews },
-    { id: "contact", label: "Contacto", href: "#contact", icon: IconContact },
+    { id: "about", label: "Nosotros", href: "/#about", icon: IconAbout },
+    { id: "reviews", label: "Reseñas", href: "/#reviews", icon: IconReviews },
+    { id: "contact", label: "Contacto", href: "/#contact", icon: IconContact },
   ];
 
   // Constantes de estilo

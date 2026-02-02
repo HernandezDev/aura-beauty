@@ -54,13 +54,13 @@
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           // Aquí actualizamos el estado LOCAL
-          activeID = `#${entry.target.id}`;
+          activeID = `/#${entry.target.id}`;
         }
       });
     }, observerOptions);
 
     routes.forEach((route) => {
-      const sectionID = route.href.replace("#", "");
+      const sectionID = route.href.replace("/#", "");
       const element = document.getElementById(sectionID);
       if (element) {
         observer.observe(element);
@@ -109,7 +109,7 @@
         {#if logo}
           {@const Logo = logo}
           <a
-            href="#home"
+            href="/#home"
             aria-label="Volver al inicio"
             onclick={() => {
               if (isMobileMenuOpen) {
