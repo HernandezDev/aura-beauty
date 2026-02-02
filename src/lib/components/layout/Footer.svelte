@@ -49,6 +49,8 @@
         </p>
       </div>
     </div>
-    <div class="md:w-14"><!-- Espaciador para diseño --></div>
+    <div class="md:w-14 lg:w-10 xl:w-8 2xl:w-0 shrink">
+      <!-- Espaciador para diseño -->
+    </div>
   </Container>
 </footer>
