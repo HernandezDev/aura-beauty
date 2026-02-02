@@ -21,20 +21,8 @@
       </div>
 
       <div class="flex gap-6 text-sm font-medium">
-        <a
-          href="#home"
-          aria-label="Inicio"
-          class="hover:text-[#C9A24D] transition-colors">Inicio</a
-        >
-        <a
-          href="#services"
-          aria-label="Servicios"
-          class="hover:text-[#C9A24D] transition-colors">Servicios</a
-        >
-        <a
-          href="#contact"
-          aria-label="Contacto"
-          class="hover:text-[#C9A24D] transition-colors">Contacto</a
+        <a href="/faq" class="hover:text-white transition-colors"
+          >Preguntas Frecuentes</a
         >
       </div>
 

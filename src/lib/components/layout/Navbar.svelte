@@ -7,6 +7,7 @@
   import XIcon from "~icons/lucide/x";
   import { slide, crossfade } from "svelte/transition";
   import { quintOut } from "svelte/easing";
+  import { page } from "$app/state";
 
   interface Props {
     routes: Routes;
@@ -42,6 +43,14 @@
 
   // --- LÓGICA DEL OBSERVADOR (SCROLL SPY) ---
   $effect(() => {
+    const currentPath = page.url.pathname;
+
+    // 3. Guardia de seguridad: Si no estamos en la home, no intentamos observar nada.
+    if (currentPath !== "/") {
+      activeID = currentPath;
+      return;
+    }
+
     const observerOptions = {
       root: null,
       rootMargin: "-40% 0px -40% 0px", // Línea central
