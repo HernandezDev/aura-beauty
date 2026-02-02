@@ -10,6 +10,7 @@
   import IconContact from "~icons/lucide/phone";
   import Footer from "$lib/components/layout/Footer.svelte";
   import Whatsapp from "$lib/components/layout/FloatingWhatsApp.svelte";
+  import type { Routes } from "$lib/types/navigation";
   const ROUTES: Routes = [
     { id: "home", label: "Inicio", href: "/#home", icon: IconHome },
     {
@@ -32,7 +33,7 @@
   let { children } = $props();
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<!-- <svelte:head><link rel="icon" href={favicon} /></svelte:head> -->
 <HeaderNav
   routes={ROUTES}
   logo={Logo}
