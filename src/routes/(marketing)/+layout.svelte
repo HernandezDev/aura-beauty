@@ -1,6 +1,4 @@
 <script lang="ts">
-  // import "$lib/styles/layout.css";
-  import favicon from "$lib/assets/favicon.svg";
   import HeaderNav from "$lib/components/layout/Navbar.svelte";
   import Logo from "$lib/components/graphics/Logo.svelte";
   import IconHome from "~icons/lucide/house";
@@ -33,7 +31,6 @@
   let { children } = $props();
 </script>
 
-<!-- <svelte:head><link rel="icon" href={favicon} /></svelte:head> -->
 <HeaderNav
   routes={ROUTES}
   logo={Logo}
