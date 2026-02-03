@@ -57,18 +57,43 @@ npm install
 npm run dev
 ```
 
-## ⚙️ variables de Entorno
+## ⚙️ Configuración de Entorno y Seguridad
 
-arachivo `.env` en la raíz del proyecto con las siguientes variables:
+Este proyecto utiliza variables de entorno para manejar datos sensibles y lógica de despliegue. Crea un archivo `.env` en la raíz (no se sube al repositorio) basado en el siguiente esquema:
+
+```bash
+# Datos Privados (Solo Servidor)
+PRIVATE_WHATSAPP_NUMBER=5491123456789
+
+# Configuración Pública (Cliente y Build)
+PUBLIC_SITE_URL=[https://aura-beauty.pages.dev](https://aura-beauty.pages.dev)
 
 ```
-PRIVATE_WHATSAPP_NUMBER=
-PUBLIC_SITE_URL=
-```
 
-PRIVATE_WHATSAPP_NUMBER: Número de WhatsApp con código de país (ej: 5491123456789), es usado en el botón de contacto para no mostrar el número directamente en el código fuente.
+### 🔐 Detalle de Variables
 
-PUBLIC_SITE_URL: URL del sitio en producción (ej: https://aura-beauty.pages.dev), usado para generar URLs canónicas y Open Graph.
+#### 1. `PRIVATE_WHATSAPP_NUMBER` (Seguridad Anti-Scraping)
+
+**El Problema:** Colocar un enlace `href="tel:..."` o `wa.me/...` expone el número del cliente directamente en el código fuente HTML, haciéndolo vulnerable a bots y scrapers de spam.
+
+**La Solución:**
+
+- Esta variable **nunca** se expone al cliente.
+- Se implementó un endpoint de API (`/api/whatsapp`) protegido.
+- **Flujo:** El botón de contacto en el frontend no contiene el número. Al hacer clic, se dispara una petición asíncrona. El servidor valida el origen de la solicitud y devuelve el número solo si la petición es legítima.
+
+#### 2. `PUBLIC_SITE_URL` (SEO Técnico & Lógica de Entorno)
+
+Define la URL canónica del sitio. Esta variable es crítica para dos sistemas:
+
+- **Generación de Open Graph:** Asegura que las imágenes y enlaces compartidos en redes sociales tengan rutas absolutas correctas.
+- **Smart Noindex (Bloqueo de Robots):** El componente de SEO compara esta variable con la URL actual del navegador.
+- Si coinciden: Se permite la indexación (`index, follow`).
+- Si NO coinciden (ej. en `localhost` o `test.aura-beauty...`): Se activa automáticamente el bloqueo (`noindex, nofollow`) para evitar contenido duplicado en Google.
+
+---
+
+> **Nota para Cloudflare Pages:** Recuerda configurar estas mismas variables en el panel de control bajo **Settings > Environment Variables** para tus entornos de Producción y Preview.
 
 ## 🧠 Configuración Centralizada (`site.config.ts`)
 
