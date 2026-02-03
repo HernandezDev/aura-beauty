@@ -13,12 +13,14 @@
 		"moduleResolution": "bundler"
 	},
 	"include": [
-        "src",                // <--- ESTO ES LO QUE BUSCAS
-        ".svelte-kit/types"   // Necesario para que SvelteKit funcione
+        "src/**/*.d.ts",
+        "src/**/*.ts",
+        "src/**/*.js",
+        "src/**/*.svelte",
+        ".svelte-kit/**/*.d.ts"
     ],
     "exclude": [
         "node_modules",
-        ".svelte-kit",
         "build"
     ]
 	// Path aliases are handled by https://svelte.dev/docs/kit/configuration#alias

@@ -1,3 +1,4 @@
+import { PUBLIC_SITE_URL } from '$env/static/public';
 // Importamos la imagen desde lib para tener hash y caché (Vite)
 import ogImageSrc from '$lib/assets/images/social-preview.jpg?url';
 
@@ -16,7 +17,7 @@ export interface SiteConfig {
 
 export const site: SiteConfig = {
 	name: 'Aura Beauty',
-	url: 'https://aura-beauty.pages.dev',
+	url: PUBLIC_SITE_URL , // URL de producción (https://...)
 	description: 'Reserva tu turno en el mejor salón de belleza. Expertos en estilo.',
 	author: 'Aura Beauty', // El cliente es el autor del contenido
 	agency: 'HernandezDev', // Tú eres el autor del código
