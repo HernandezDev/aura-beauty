@@ -14,9 +14,6 @@
   );
 
   // 4. URLs Absolutas
-  // MODIFICADO: Usamos la variable de entorno como fuente de verdad.
-  // Si por error no existe en el .env, usa site.url como respaldo.
-
   const siteUrl = site.url.replace(/\/$/, "");
 
   let imageUrl = $derived(
