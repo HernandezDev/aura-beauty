@@ -86,6 +86,7 @@ PUBLIC_SITE_URL=https://aura-beauty.pages.dev
 
 Define la URL canónica del sitio. Esta variable es crítica para dos sistemas:
 
+- **Generación de Open Graph:** Asegura que las imágenes y enlaces compartidos en redes sociales tengan rutas absolutas correctas.
 - **Smart Noindex (Bloqueo de Robots):** El componente de SEO compara esta variable con la URL actual del navegador.
 - Si coinciden: Se permite la indexación (`index, follow`).
 - Si NO coinciden (ej. en `localhost` o `test.aura-beauty...`): Se activa automáticamente el bloqueo (`noindex, nofollow`) para evitar contenido duplicado en Google.
