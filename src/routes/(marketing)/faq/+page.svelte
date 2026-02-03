@@ -1,8 +1,4 @@
 <script>
-  const SEO = {
-    title: "Aura Beauty | Preguntas Frecuentes",
-    description: "Resuelve tus dudas sobre nuestros servicios y reservas.",
-  };
   const faqs = [
     {
       pregunta: "¿Cómo funciona el servicio?",
@@ -19,11 +15,6 @@
     },
   ];
 </script>
-
-<svelte:head>
-  <title>{SEO.title}</title>
-  <meta name="description" content={SEO.description} />
-</svelte:head>
 
 <div class="py-12 px-4 sm:px-6 lg:px-8">
   <article class="prose prose-lg mx-auto">

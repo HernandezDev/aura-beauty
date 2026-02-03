@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { page } from "$app/state";
+  import Seo from "$lib/components/meta/Seo.svelte";
   import HeaderNav from "$lib/components/layout/Navbar.svelte";
   import Logo from "$lib/components/graphics/Logo.svelte";
   import IconHome from "~icons/lucide/house";
@@ -29,7 +31,20 @@
     "bg-gray-800/90 backdrop-blur-md border-t border-gray-700";
   const auraHeaderClasses = "bg-gray-900/95 shadow-lg";
   let { children } = $props();
+  let seoData = $derived(page.data ?? {});
+  /* 📝 SEO INDIVIDUAL (Instrucciones para copiar en +page.ts):
+  -----------------------------------------------------------
+  import type { PageLoad } from './$types';
+  
+  export const load: PageLoad = () => ({
+      title: "Título Personalizado", 
+      description: "Descripción para Google...",
+      noindex: false 
+  });
+  */
 </script>
+
+<Seo {...seoData} />
 
 <HeaderNav
   routes={ROUTES}
