@@ -66,7 +66,7 @@ Este proyecto utiliza variables de entorno para manejar datos sensibles y lógic
 PRIVATE_WHATSAPP_NUMBER=5491123456789
 
 # Configuración Pública (Cliente y Build)
-PUBLIC_SITE_URL=[https://aura-beauty.pages.dev](https://aura-beauty.pages.dev)
+PUBLIC_SITE_URL=https://aura-beauty.pages.dev
 
 ```
 
