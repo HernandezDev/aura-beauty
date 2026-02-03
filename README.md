@@ -87,7 +87,7 @@ PUBLIC_SITE_URL=https://aura-beauty.pages.dev
 Define la URL canónica del sitio. Esta variable es crítica para dos sistemas:
 
 - **Generación de Open Graph:** Asegura que las imágenes y enlaces compartidos en redes sociales tengan rutas absolutas correctas.
-- **Smart Noindex (Bloqueo de Robots):** El componente de SEO compara esta variable con la URL actual del navegador.
+- **Smart Noindex (Bloqueo de Robots):** El componente de SEO compara esta variable con la URL de la variable `urlProd` definida en `site.config.ts`.
 - Si coinciden: Se permite la indexación (`index, follow`).
 - Si NO coinciden (ej. en `localhost` o `test.aura-beauty...`): Se activa automáticamente el bloqueo (`noindex, nofollow`) para evitar contenido duplicado en Google.
 
@@ -140,18 +140,6 @@ Implementación de **Self-Hosting** para las fuentes (Manrope & Lora) para evita
 ```
 
 ### Gestión de Estilos
-
-- Importación única de `app.css` (Tailwind) para mantener el CSS crítico pequeño.
-- Inyección dinámica de Favicons optimizados.
-
-## 🔒 Sistema de SEO Inteligente ("Smart Noindex")
-
-El componente `<Seo />` implementa una lógica de protección automática para evitar contenido duplicado:
-
-1. **Detección de Entorno:** Compara la variable `PUBLIC_SITE_URL` contra la configuración de producción.
-2. **Bloqueo Automático:** Si el despliegue es una _Preview_ (ej: `test.aura-beauty...`) o _Localhost_, inyecta automáticamente:
-   `<meta name="robots" content="noindex, nofollow" />`
-3. **Producción:** Solo permite la indexación (`index, follow`) si el dominio coincide exactamente con la URL oficial.
 
 ---
 
