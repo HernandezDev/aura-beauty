@@ -6,15 +6,10 @@
 
   interface Props {
     class?: string;
-    title?: string;
     id?: string;
   }
 
-  let {
-    class: className = "",
-    title = "Aura Beauty",
-    id = "home",
-  }: Props = $props();
+  let { class: className = "", id = "home" }: Props = $props();
 
   let ready = $state(false);
   onMount(() => {
@@ -59,7 +54,6 @@
     <div
       class="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20"
     >
-      <h1 class="sr-only">{title}</h1>
       {#if ready}
         <h1
           in:fly={{ y: 30, duration: 1000, delay: 100 }}
