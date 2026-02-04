@@ -85,22 +85,24 @@
         >
           {title}
         </h1>
-
-        <p
-          in:fly={{ y: 30, duration: 1000, delay: 300 }}
-          class={cn(
-            "text-lg md:text-2xl text-gray-200 drop-shadow-md font-light max-w-2xl text-pretty",
-            subtitleClass,
-          )}
-          class:hidden={!subtitle}
-        >
-          {subtitle}
-        </p>
       {:else}
         <!-- H1 accesible para SEO/lectores de pantalla mientras aún no se anima -->
         <h1 class="sr-only">
           {title}
         </h1>
+      {/if}
+      {#if subtitle && ready}
+        <p
+          in:fly={{ y: 30, duration: 1000, delay: 300 }}
+          class={cn(
+            "text-lg md:text-xl lg:text-2xl text-white drop-shadow-md max-w-3xl text-balance",
+            subtitleClass,
+          )}
+        >
+          {subtitle}
+        </p>
+      {:else if subtitle}
+        <!-- P accesible para SEO/lectores de pantalla mientras aún no se anima -->
         <p class="sr-only">
           {subtitle}
         </p>
