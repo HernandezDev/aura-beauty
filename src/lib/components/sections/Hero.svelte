@@ -1,17 +1,33 @@
 <script lang="ts">
-  import heroDesktop from "$lib/assets/images/hero-bg.webp?enhanced";
-  import heroMobile from "$lib/assets/images/hero-bg-mobile.webp?enhanced";
+  import heroDesktopDefault from "$lib/assets/images/hero-bg.webp?enhanced";
+  import heroMobileDefault from "$lib/assets/images/hero-bg-mobile.webp?enhanced";
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
 
   interface Props {
     class?: string;
     id?: string;
+
+    title: string;
+    subtitle?: string;
+
+    desktopImage?: any;
+    mobileImage?: any;
   }
 
-  let { class: className = "", id = "home" }: Props = $props();
+  let {
+    class: className = "",
+    id = "home",
+
+    title,
+    subtitle = "",
+
+    desktopImage = heroDesktopDefault,
+    mobileImage = heroMobileDefault,
+  }: Props = $props();
 
   let ready = $state(false);
+
   onMount(() => {
     ready = true;
   });
@@ -23,24 +39,24 @@
       <!-- Móvil: AVIF primero, luego WebP -->
       <source
         media="(max-width: 768px)"
-        srcset={heroMobile.sources.avif}
+        srcset={mobileImage.sources.avif}
         type="image/avif"
       />
       <source
         media="(max-width: 768px)"
-        srcset={heroMobile.sources.webp}
+        srcset={mobileImage.sources.webp}
         type="image/webp"
       />
 
       <!-- Escritorio: AVIF primero, luego WebP -->
-      <source srcset={heroDesktop.sources.avif} type="image/avif" />
-      <source srcset={heroDesktop.sources.webp} type="image/webp" />
+      <source srcset={desktopImage.sources.avif} type="image/avif" />
+      <source srcset={desktopImage.sources.webp} type="image/webp" />
 
       <img
-        src={heroDesktop.img.src}
-        width={heroDesktop.img.w}
-        height={heroDesktop.img.h}
-        alt="Spa Background"
+        src={desktopImage.img.src}
+        width={desktopImage.img.w}
+        height={desktopImage.img.h}
+        alt={desktopImage.img.alt ?? title}
         class="absolute inset-0 w-full h-full object-cover object-center"
         loading="eager"
         fetchpriority="high"
@@ -59,18 +75,24 @@
           in:fly={{ y: 30, duration: 1000, delay: 100 }}
           class="font-serif text-4xl md:text-6xl lg:text-7xl font-medium text-white mb-6 drop-shadow-lg max-w-5xl leading-tight text-balance"
         >
-          Revela tu verdadera
-          <span class="italic text-[#F3E5AB] whitespace-nowrap">esencia</span>
+          {title}
         </h1>
 
         <p
           in:fly={{ y: 30, duration: 1000, delay: 300 }}
           class="text-lg md:text-2xl text-gray-200 drop-shadow-md font-light max-w-2xl text-pretty"
+          class:hidden={!subtitle}
         >
-          Tratamientos exclusivos para realzar tu belleza natural.
+          {subtitle}
         </p>
       {:else}
-        <h1 class="sr-only">Revela tu verdadera esencia</h1>
+        <!-- H1 accesible para SEO/lectores de pantalla mientras aún no se anima -->
+        <h1 class="sr-only">
+          {title}
+        </h1>
+        <p class="sr-only">
+          {subtitle}
+        </p>
       {/if}
     </div>
   </div>

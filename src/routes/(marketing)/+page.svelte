@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { Routes } from "$lib/types/navigation";
   import Hero from "$lib/components/sections/Hero.svelte";
   import Services from "$lib/components/sections/Services.svelte";
   import About from "$lib/components/sections/About.svelte";
@@ -8,7 +7,10 @@
 </script>
 
 <main>
-  <Hero />
+  <Hero
+    title="Revela tu verdadera esencia"
+    subtitle="Tratamientos exclusivos para realzar tu belleza natural."
+  />
   <Services />
   <About />
   <Reviews />
