@@ -24,6 +24,7 @@ _Auditoría realizada en Enero 2026._ [Ver reporte en vivo](https://pagespeed.we
 
 - **Framework:** [SvelteKit](https://kit.svelte.dev/) (SSR & Prerendering)
 - **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
+- **Imágenes:** [@sveltejs/enhanced-img](https://github.com/sveltejs/enhanced-img) (Optimización en Build-time)
 - **Despliegue:** [Cloudflare Pages](https://pages.cloudflare.com/)
 - **Iconos:** Svelte-Lucide
 - **Formulario:** Integración con Formspree
@@ -33,7 +34,9 @@ _Auditoría realizada en Enero 2026._ [Ver reporte en vivo](https://pagespeed.we
 
 - **Diseño Responsivo:** Adaptado perfectamente a móviles, tablets y escritorio.
 - **Animaciones Suaves:** Transiciones de entrada usando Svelte transitions (`fly`).
-- **Imágenes Optimizadas:**uso de EncedImg para cara rapida del hero y Componente `ImageReveal` con carga diferida (lazy loading) y efecto fade-in para el resto de imagenes del sitio.
+- **Imágenes Optimizadas:**
+  - Uso de **@sveltejs/enhanced-img** para servir formatos modernos (AVIF/WebP) y redimensionamiento automático en el Hero.
+  - Componente `ImageReveal` propio para carga diferida (lazy loading) con efecto fade-in en el resto del sitio.
 - **Accesibilidad (a11y):** Navegación por teclado, etiquetas ARIA y jerarquía semántica correcta.
 - **SEO On-Page:** Configuración correcta de títulos y meta-descripciones para indexación en Google.
 
@@ -43,7 +46,7 @@ Si quieres clonar y correr este proyecto localmente:
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/HernandezDev/aura-beauty.git
+git clone [https://github.com/HernandezDev/aura-beauty.git](https://github.com/HernandezDev/aura-beauty.git)
 
 # 2. Entrar al directorio
 cd aura-beauty
@@ -56,6 +59,7 @@ npm install
 
 # 5. Iniciar servidor de desarrollo
 npm run dev
+
 ```
 
 ## ⚙️ Configuración de Entorno y Seguridad
@@ -67,7 +71,7 @@ Este proyecto utiliza variables de entorno para manejar datos sensibles y lógic
 PRIVATE_WHATSAPP_NUMBER=5491123456789
 
 # Configuración Pública (Cliente y Build)
-PUBLIC_SITE_URL=https://aura-beauty.pages.dev
+PUBLIC_SITE_URL=[https://aura-beauty.pages.dev](https://aura-beauty.pages.dev)
 
 ```
 
@@ -88,7 +92,7 @@ PUBLIC_SITE_URL=https://aura-beauty.pages.dev
 Define la URL canónica del sitio. Esta variable es crítica para dos sistemas:
 
 - **Generación de Open Graph:** Asegura que las imágenes y enlaces compartidos en redes sociales tengan rutas absolutas correctas.
-- **Smart Noindex (Bloqueo de Robots):** El componente de SEO compara esta variable con la URL de la variable `urlProd` definida en `site.config.ts`.
+- **Smart Noindex (Bloqueo de Robots):** El componente de SEO compara esta variable con la URL definida en `site.config.ts`.
 - Si coinciden: Se permite la indexación (`index, follow`).
 - Si NO coinciden (ej. en `localhost` o `test.aura-beauty...`): Se activa automáticamente el bloqueo (`noindex, nofollow`) para evitar contenido duplicado en Google.
 
@@ -109,7 +113,7 @@ La lógica de negocio y los metadatos estáticos están desacoplados de los comp
 // Ejemplo de estructura
 export const site = {
   name: "Aura Beauty",
-  urlProd: "https://aura-beauty.pages.dev", // URL Oficial
+  urlProd: "[https://aura-beauty.pages.dev](https://aura-beauty.pages.dev)", // URL Oficial
   author: "Cliente",
   ogImageAlt: "Descripción para accesibilidad...",
   themeColor: "#c9a24d",
@@ -127,16 +131,19 @@ Se implementó una arquitectura de **Self-Hosting** gestionada vía NPM (`@fonts
 
 **Decisiones de Arquitectura:**
 
-1.  **Prioridad de Carga (Preloading):**
-    - **Objetivo:** Evitar la cadena de latencia habitual donde el navegador espera a descargar y procesar el CSS para "descubrir" que necesita una fuente.
-    - **Implementación:** Importamos la URL de la fuente en el Layout raíz y la inyectamos con `<link rel="preload">`. Esto fuerza al navegador a descargar la fuente **en paralelo** al CSS, acelerando el primer pintado con texto (LCP) y reduciendo el movimiento visual (CLS).
+1. **Prioridad de Carga (Preloading):**
 
-2.  **Gestión como Dependencia:**
-    - Al usar NPM, las fuentes se versionan y actualizan igual que cualquier librería de código, evitando la gestión manual de archivos binarios en carpetas estáticas.
+- **Objetivo:** Evitar la cadena de latencia habitual donde el navegador espera a descargar y procesar el CSS para "descubrir" que necesita una fuente.
+- **Implementación:** Importamos la URL de la fuente en el Layout raíz y la inyectamos con `<link rel="preload">`. Esto fuerza al navegador a descargar la fuente **en paralelo** al CSS, acelerando el primer pintado con texto (LCP) y reduciendo el movimiento visual (CLS).
 
-3.  **Inmutabilidad (Efecto Colateral del Build):**
-    - Al usar el sufijo `?url` de Vite, se genera un hash único en el nombre del archivo (ej: `manrope.DHIcAJRg.woff2`).
-    - Esto habilita automáticamente políticas de **Caché Inmutable**: el navegador guarda la fuente indefinidamente y nunca gasta tiempo de red en revalidarla, ya que cualquier actualización futura de la librería generará un nuevo nombre de archivo.
+2. **Gestión como Dependencia:**
+
+- Al usar NPM, las fuentes se versionan y actualizan igual que cualquier librería de código, evitando la gestión manual de archivos binarios en carpetas estáticas.
+
+3. **Inmutabilidad (Efecto Colateral del Build):**
+
+- Al usar el sufijo `?url` de Vite, se genera un hash único en el nombre del archivo (ej: `manrope.DHIcAJRg.woff2`).
+- Esto habilita automáticamente políticas de **Caché Inmutable**: el navegador guarda la fuente indefinidamente y nunca gasta tiempo de red en revalidarla, ya que cualquier actualización futura de la librería generará un nuevo nombre de archivo.
 
 ```svelte
 <script>
@@ -150,10 +157,9 @@ Se implementó una arquitectura de **Self-Hosting** gestionada vía NPM (`@fonts
 
 ```
 
-### Gestión de Estilos
+### 💅 Gestión de Estilos y UI
 
-la configuración de Tailwind CSS está centralizada en `src/lib/styles/layout.css`, que se importa en el Layout raíz para aplicar estilos globales y utilidades.
-se definen las fuentes personalizadas en el tema CSS:
+La configuración de Tailwind CSS está centralizada en `src/lib/styles/layout.css` e importada en el layout raíz. Se utilizan variables CSS nativas para definir la identidad visual:
 
 ```css
 @theme {
@@ -162,20 +168,16 @@ se definen las fuentes personalizadas en el tema CSS:
 }
 ```
 
-y se aplica un estilo uniforme a todos los inputs confiando en que el plugin '@tailwindcss/forms'; manejará el resto:
+Para mantener la consistencia en los formularios, se aplica una capa base de estilos utilizando la directiva `@apply`, confiando en el plugin `@tailwindcss/forms` para la normalización:
 
 ```css
-input.... {
-  @apply focus:outline-none focus:ring-gold! focus:border-gold!;
-
+/* Ejemplo de abstracción para Inputs */
+.input-base {
   @apply bg-neutral-900 border-neutral-700 text-neutral-300;
+  @apply focus:outline-none focus:ring-gold! focus:border-gold!;
 }
 ```
 
 ---
 
 © 2026 Aura Beauty Project
-
-```
-
-```
