@@ -52,6 +52,7 @@ cd aura-beauty
 npm install
 
 # 4. Configurar variables de entorno
+// ver sección "Configuración de Entorno y Seguridad" más abajo
 
 # 5. Iniciar servidor de desarrollo
 npm run dev
