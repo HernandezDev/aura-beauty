@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { cn } from "$lib/utils";
   import heroDesktopDefault from "$lib/assets/images/hero-bg.webp?enhanced";
   import heroMobileDefault from "$lib/assets/images/hero-bg-mobile.webp?enhanced";
   import { onMount } from "svelte";
@@ -9,7 +10,9 @@
     id?: string;
 
     title: string;
+    titleClass?: string;
     subtitle?: string;
+    subtitleClass?: string;
 
     desktopImage?: any;
     mobileImage?: any;
@@ -20,7 +23,9 @@
     id = "home",
 
     title,
+    titleClass = "",
     subtitle = "",
+    subtitleClass = "",
 
     desktopImage = heroDesktopDefault,
     mobileImage = heroMobileDefault,
@@ -33,7 +38,7 @@
   });
 </script>
 
-<section {id} class="w-full -mt-20 {className}">
+<section {id} class={cn("w-full -mt-20", className)}>
   <div class="relative w-full h-screen min-h-150 overflow-hidden shadow-xl">
     <picture>
       <!-- Móvil: AVIF primero, luego WebP -->
@@ -73,14 +78,20 @@
       {#if ready}
         <h1
           in:fly={{ y: 30, duration: 1000, delay: 100 }}
-          class="font-serif text-4xl md:text-6xl lg:text-7xl font-medium text-white mb-6 drop-shadow-lg max-w-5xl leading-tight text-balance"
+          class={cn(
+            "font-serif text-4xl md:text-6xl lg:text-7xl font-medium text-white mb-6 drop-shadow-lg max-w-5xl leading-tight text-balance",
+            titleClass,
+          )}
         >
           {title}
         </h1>
 
         <p
           in:fly={{ y: 30, duration: 1000, delay: 300 }}
-          class="text-lg md:text-2xl text-gray-200 drop-shadow-md font-light max-w-2xl text-pretty"
+          class={cn(
+            "text-lg md:text-2xl text-gray-200 drop-shadow-md font-light max-w-2xl text-pretty",
+            subtitleClass,
+          )}
           class:hidden={!subtitle}
         >
           {subtitle}
