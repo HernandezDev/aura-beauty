@@ -69,6 +69,8 @@
         >
           Tratamientos exclusivos para realzar tu belleza natural.
         </p>
+      {:else}
+        <h1 class="sr-only">Revela tu verdadera esencia</h1>
       {/if}
     </div>
   </div>
