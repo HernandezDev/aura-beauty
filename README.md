@@ -33,7 +33,7 @@ _Auditoría realizada en Enero 2026._ [Ver reporte en vivo](https://pagespeed.we
 
 - **Diseño Responsivo:** Adaptado perfectamente a móviles, tablets y escritorio.
 - **Animaciones Suaves:** Transiciones de entrada usando Svelte transitions (`fly`).
-- **Imágenes Optimizadas:** Uso de formatos modernos (WebP) y estrategias de carga (`fetchpriority`, `loading="eager"`).
+- **Imágenes Optimizadas:**uso de EncedImg para cara rapida del hero y Componente `ImageReveal` con carga diferida (lazy loading) y efecto fade-in para el resto de imagenes del sitio.
 - **Accesibilidad (a11y):** Navegación por teclado, etiquetas ARIA y jerarquía semántica correcta.
 - **SEO On-Page:** Configuración correcta de títulos y meta-descripciones para indexación en Google.
 
@@ -120,16 +120,26 @@ export const site = {
 
 El layout raíz (`src/routes/+layout.svelte`) no solo envuelve las páginas, sino que gestiona la **optimización técnica de assets** crítica para el rendimiento.
 
-### Estrategia de Carga de Fuentes
+### ⚡ Estrategia de Carga de Fuentes (Performance & DX)
 
-Implementación de **Self-Hosting** para las fuentes (Manrope & Lora) para evitar el layout shift (CLS) y la dependencia de servidores externos (Google Fonts).
+Se implementó una arquitectura de **Self-Hosting** gestionada vía NPM (`@fontsource`) para optimizar el _Critical Rendering Path_ y simplificar el mantenimiento.
 
-- **Cache Busting:** Las fuentes se importan usando el sufijo `?url` de Vite.
-- **Resultado:** Se genera un hash único (ej: `manrope.DHIcAJRg.woff2`) que garantiza que los usuarios siempre descarguen la versión más reciente, permitiendo políticas de caché agresivas (Inmutabilidad).
+**Decisiones de Arquitectura:**
+
+1.  **Prioridad de Carga (Preloading):**
+    - **Objetivo:** Evitar la cadena de latencia habitual donde el navegador espera a descargar y procesar el CSS para "descubrir" que necesita una fuente.
+    - **Implementación:** Importamos la URL de la fuente en el Layout raíz y la inyectamos con `<link rel="preload">`. Esto fuerza al navegador a descargar la fuente **en paralelo** al CSS, acelerando el primer pintado con texto (LCP) y reduciendo el movimiento visual (CLS).
+
+2.  **Gestión como Dependencia:**
+    - Al usar NPM, las fuentes se versionan y actualizan igual que cualquier librería de código, evitando la gestión manual de archivos binarios en carpetas estáticas.
+
+3.  **Inmutabilidad (Efecto Colateral del Build):**
+    - Al usar el sufijo `?url` de Vite, se genera un hash único en el nombre del archivo (ej: `manrope.DHIcAJRg.woff2`).
+    - Esto habilita automáticamente políticas de **Caché Inmutable**: el navegador guarda la fuente indefinidamente y nunca gasta tiempo de red en revalidarla, ya que cualquier actualización futura de la librería generará un nuevo nombre de archivo.
 
 ```svelte
 <script>
-  // Importación optimizada con Vite
+  // Obtenemos la URL final procesada por Vite
   import fontSans from "@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url";
 </script>
 
