@@ -1,9 +1,10 @@
 <script lang="ts">
   import { cn } from "$lib/utils";
-  import heroDesktopDefault from "$lib/assets/images/hero-bg.webp?enhanced";
-  import heroMobileDefault from "$lib/assets/images/hero-bg-mobile.webp?enhanced";
+  import type { EnhancedImage } from "$lib/types";
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
+  import heroDesktopDefault from "$lib/assets/images/hero-bg.webp?enhanced";
+  import heroMobileDefault from "$lib/assets/images/hero-bg-mobile.webp?enhanced";
 
   interface Props {
     class?: string;
@@ -15,8 +16,8 @@
     subtitleClass?: string;
     overlayClass?: string;
 
-    desktopImage?: any;
-    mobileImage?: any;
+    desktopImage?: EnhancedImage;
+    mobileImage?: EnhancedImage;
   }
 
   let {
