@@ -157,27 +157,35 @@ Se implementó una arquitectura de **Self-Hosting** gestionada vía NPM (`@fonts
 
 ```
 
-### 💅 Gestión de Estilos y UI
+### 💅 Gestión de Estilos y UI (Tailwind v4)
 
-La configuración de Tailwind CSS está centralizada en `src/lib/styles/layout.css` e importada en el layout raíz. Se utilizan variables CSS nativas para definir la identidad visual:
+La configuración de estilos está centralizada en `src/lib/styles/layout.css`. Se utiliza la nueva arquitectura de **Tailwind CSS v4** basada en variables CSS nativas para definir la identidad visual:
 
 ```css
 @theme {
   --font-sans: "Manrope Variable", sans-serif;
   --font-serif: "Lora Variable", serif;
+  --color-gold: #c9a24d;
 }
 ```
 
-Para mantener la consistencia en los formularios, se aplica una capa base de estilos utilizando la directiva `@apply`, confiando en el plugin `@tailwindcss/forms` para la normalización:
+Para los formularios, se utiliza una **estrategia híbrida**:
+
+1. **Normalización:** El plugin `@tailwindcss/forms` resetea los estilos nativos del navegador, garantizando una base idéntica en Chrome, Safari y Firefox.
+2. **Personalización Global:** Sobre esa base limpia, inyectamos los estilos corporativos en la capa `@layer base`. Esto permite que todos los inputs adquieran el diseño automáticamente sin necesidad de clases utilitarias en el HTML.
 
 ```css
-/* Ejemplo de abstracción para Inputs */
-.input-base {
-  @apply bg-neutral-900 border-neutral-700 text-neutral-300;
-  @apply focus:outline-none focus:ring-gold! focus:border-gold!;
+/* layout.css */
+@layer base {
+  /* Seleccionamos todos los elementos de formulario normalizados */
+  [type="text"], [type="email"], textarea, select /* ... */ {
+    /* Estilos visuales del tema (Dark Mode) */
+    @apply bg-neutral-900 border-neutral-700 text-neutral-300;
+
+    /* Focus state corporativo (forzando prioridad sobre el plugin con !) */
+    @apply focus:outline-none focus:ring-gold! focus:border-gold!;
+  }
 }
 ```
-
----
 
 © 2026 Aura Beauty Project
