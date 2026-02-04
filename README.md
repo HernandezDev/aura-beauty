@@ -152,6 +152,30 @@ Se implementó una arquitectura de **Self-Hosting** gestionada vía NPM (`@fonts
 
 ### Gestión de Estilos
 
+la configuración de Tailwind CSS está centralizada en `src/lib/styles/layout.css`, que se importa en el Layout raíz para aplicar estilos globales y utilidades.
+se definen las fuentes personalizadas en el tema CSS:
+
+```css
+@theme {
+  --font-sans: "Manrope Variable", sans-serif;
+  --font-serif: "Lora Variable", serif;
+}
+```
+
+y se aplica un estilo uniforme a todos los inputs confiando en que el plugin '@tailwindcss/forms'; manejará el resto:
+
+```css
+input.... {
+  @apply focus:outline-none focus:ring-gold! focus:border-gold!;
+
+  @apply bg-neutral-900 border-neutral-700 text-neutral-300;
+}
+```
+
 ---
 
 © 2026 Aura Beauty Project
+
+```
+
+```
