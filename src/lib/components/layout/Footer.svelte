@@ -43,8 +43,14 @@
         </div>
 
         <p class="text-xs text-neutral-600">
-          Diseñado por <span class="text-neutral-400 font-medium"
-            >HernandezDev</span
+          Diseñado por
+          <a
+            class="text-neutral-400 font-medium"
+            href="https://www.linkedin.com/in/hernandezdev/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            HernandezDev</a
           >
         </p>
       </div>
