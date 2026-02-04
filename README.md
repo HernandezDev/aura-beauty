@@ -46,7 +46,7 @@ Si quieres clonar y correr este proyecto localmente:
 
 ```bash
 # 1. Clonar el repositorio
-git clone [https://github.com/HernandezDev/aura-beauty.git](https://github.com/HernandezDev/aura-beauty.git)
+git clone https://github.com/HernandezDev/aura-beauty.git
 
 # 2. Entrar al directorio
 cd aura-beauty
@@ -71,7 +71,7 @@ Este proyecto utiliza variables de entorno para manejar datos sensibles y lógic
 PRIVATE_WHATSAPP_NUMBER=5491123456789
 
 # Configuración Pública (Cliente y Build)
-PUBLIC_SITE_URL=[https://aura-beauty.pages.dev](https://aura-beauty.pages.dev)
+PUBLIC_SITE_URL=https://aura-beauty.pages.dev
 
 ```
 
