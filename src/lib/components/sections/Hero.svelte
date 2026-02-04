@@ -13,6 +13,7 @@
     titleClass?: string;
     subtitle?: string;
     subtitleClass?: string;
+    overlayClass?: string;
 
     desktopImage?: any;
     mobileImage?: any;
@@ -26,7 +27,7 @@
     titleClass = "",
     subtitle = "",
     subtitleClass = "",
-
+    overlayClass = "bg-linear-to-t from-gray-900/90 via-gray-900/30 to-black/10",
     desktopImage = heroDesktopDefault,
     mobileImage = heroMobileDefault,
   }: Props = $props();
@@ -68,9 +69,7 @@
       />
     </picture>
 
-    <div
-      class="absolute inset-0 bg-linear-to-t from-gray-900/90 via-gray-900/30 to-black/10"
-    ></div>
+    <div class={cn("absolute inset-0", overlayClass)}></div>
 
     <div
       class="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4 pt-20"
