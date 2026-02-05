@@ -101,7 +101,7 @@
       {:else}
         <!-- H1 accesible para SEO/lectores de pantalla mientras aún no se anima -->
         <h1 class="sr-only">
-          {title}
+          {@render renderContent(title)}
         </h1>
       {/if}
       {#if subtitle && ready}

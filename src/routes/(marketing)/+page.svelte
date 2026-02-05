@@ -7,10 +7,12 @@
 </script>
 
 <main>
-  <Hero
-    title="Revela tu verdadera esencia"
-    subtitle="Tratamientos exclusivos para realzar tu belleza natural."
-  />
+  <Hero subtitle="Tratamientos exclusivos para realzar tu belleza natural.">
+    {#snippet title()}
+      Revela tu verdadera
+      <span class="italic text-[#F3E5AB] whitespace-nowrap">esencia</span>
+    {/snippet}
+  </Hero>
   <Services />
   <About />
   <Reviews />
