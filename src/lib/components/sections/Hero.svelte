@@ -3,16 +3,17 @@
   import type { EnhancedImage } from "$lib/types";
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
+  import type { Snippet } from "svelte";
   import heroDesktopDefault from "$lib/assets/images/hero-bg.webp?enhanced";
   import heroMobileDefault from "$lib/assets/images/hero-bg-mobile.webp?enhanced";
 
   interface Props {
     class?: string;
     id?: string;
-
-    title: string;
+    altText?: string;
+    title: string | Snippet;
     titleClass?: string;
-    subtitle?: string;
+    subtitle?: string | Snippet;
     subtitleClass?: string;
     overlayClass?: string;
 
@@ -25,6 +26,7 @@
     id = "home",
 
     title,
+    altText = "",
     titleClass = "",
     subtitle = "",
     subtitleClass = "",
@@ -39,6 +41,15 @@
     ready = true;
   });
 </script>
+
+<!-- snippet auxiliar -->
+{#snippet renderContent(content: string | Snippet)}
+  {#if typeof content === "string"}
+    {content}
+  {:else}
+    {@render content()}
+  {/if}
+{/snippet}
 
 <section {id} class={cn("w-full -mt-20", className)}>
   <div class="relative w-full h-screen min-h-150 overflow-hidden shadow-xl">
@@ -63,7 +74,9 @@
         src={desktopImage.img.src}
         width={desktopImage.img.w}
         height={desktopImage.img.h}
-        alt={desktopImage.img.alt ?? title}
+        alt={desktopImage.img.alt ??
+          altText ??
+          (typeof title === "string" ? title : "")}
         class="absolute inset-0 w-full h-full object-cover object-center"
         loading="eager"
         fetchpriority="high"
@@ -83,7 +96,7 @@
             titleClass,
           )}
         >
-          {title}
+          {@render renderContent(title)}
         </h1>
       {:else}
         <!-- H1 accesible para SEO/lectores de pantalla mientras aún no se anima -->
@@ -99,12 +112,12 @@
             subtitleClass,
           )}
         >
-          {subtitle}
+          {@render renderContent(subtitle)}
         </p>
       {:else if subtitle}
         <!-- P accesible para SEO/lectores de pantalla mientras aún no se anima -->
         <p class="sr-only">
-          {subtitle}
+          {@render renderContent(subtitle)}
         </p>
       {/if}
     </div>
