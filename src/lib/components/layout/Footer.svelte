@@ -1,6 +1,6 @@
 <script lang="ts">
   import Container from "$lib/components/ui/Container.svelte";
-  import type { Snippet, Component } from "svelte";
+  import type { Snippet } from "svelte";
   import type { FooterLinks, SocialLinks } from "$lib/types/navigation";
 
   interface Props {
