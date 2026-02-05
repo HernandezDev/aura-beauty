@@ -55,4 +55,7 @@
 />
 {@render children()}
 <Whatsapp />
-<Footer />
+<Footer
+  brandName="Aura Beauty"
+  navLinks={[{ label: "Preguntas frecuentes", href: "/faq" }]}
+/>
