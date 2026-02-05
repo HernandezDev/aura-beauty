@@ -64,15 +64,16 @@ npm run dev
 
 ## 🧩 Estructura de componentes
 
-- `src/lib/components/ui/`: Componentes UI reutilizables (design system).
-- `src/lib/components/layout/`: Layouts compartidos (navbar, footer,floatingWhatsApp).
-- `src/lib/components/sections/`: Secciones de contenido **pensadas para re-escribirse** según el cliente/proyecto.
+- `src/lib/components/ui/`: Componentes de UI reutilizables (design system).
+- `src/lib/components/layout/`: Layouts compartidos (navbar, footer, FloatingWhatsApp).
+- `src/lib/components/sections/`: Secciones de contenido **pensadas para reescribirse** según el cliente/proyecto.
 
 Para crear una nueva landing para otro negocio:
 
-1. Ajusta `src/lib/site.config.ts` (nombre, URLs, SEO).
-2. Re-escribe los componentes en `src/lib/components/sections/` con el nuevo contenido.
-3. Reemplaza imágenes en `src/lib/assets/images/`.
+1. Si es necesario, instala nuevas fuentes con `npm` desde [fontsource.org](https://fontsource.org) y ajusta `src/routes/+layout.svelte` y `src/lib/styles/layout.css`.
+2. Ajusta `src/lib/site.config.ts` (nombre, URLs, SEO, idioma).
+3. Reescribe los componentes en `src/lib/components/sections/` con el nuevo contenido.
+4. Reemplaza las imágenes en `src/lib/assets/images/`.
 
 ## ⚙️ Configuración de Entorno y Seguridad
 
