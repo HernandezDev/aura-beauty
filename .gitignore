@@ -21,3 +21,5 @@ Thumbs.db
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+# Ignorar lockfile para evitar conflictos Win/Linux en Cloudflare
+package-lock.json
