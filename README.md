@@ -113,7 +113,7 @@ La lógica de negocio y los metadatos estáticos están desacoplados de los comp
 // Ejemplo de estructura
 export const site = {
   name: "Aura Beauty",
-  urlProd: "[https://aura-beauty.pages.dev](https://aura-beauty.pages.dev)", // URL Oficial
+  urlProd: "https://aura-beauty.pages.dev", // URL Oficial
   author: "Cliente",
   ogImageAlt: "Descripción para accesibilidad...",
   themeColor: "#c9a24d",
