@@ -8,6 +8,8 @@
   import IconAbout from "~icons/lucide/users";
   import IconReviews from "~icons/lucide/star";
   import IconContact from "~icons/lucide/phone";
+  import IconFacebook from "~icons/mdi/facebook";
+  import IconInstagram from "~icons/mdi/instagram";
   import Footer from "$lib/components/layout/Footer.svelte";
   import Whatsapp from "$lib/components/layout/FloatingWhatsApp.svelte";
   import type { Routes } from "$lib/types/navigation";
@@ -58,4 +60,16 @@
 <Footer
   brandName="Aura Beauty"
   navLinks={[{ label: "Preguntas frecuentes", href: "/faq" }]}
+  socialLinks={[
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/",
+      icon: IconInstagram,
+    },
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/",
+      icon: IconFacebook,
+    },
+  ]}
 />
