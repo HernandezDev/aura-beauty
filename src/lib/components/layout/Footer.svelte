@@ -1,26 +1,15 @@
 <script lang="ts">
   import Container from "$lib/components/ui/Container.svelte";
   import type { Snippet, Component } from "svelte";
-
-  // Definimos las estructuras de datos para mantener el orden
-  export interface NavLink {
-    label: string;
-    href: string;
-  }
-
-  export interface SocialLink {
-    label: string;
-    href: string;
-    icon: Component; // Aceptamos el componente del icono directamente
-  }
+  import type { FooterLinks, SocialLinks } from "$lib/types/navigation";
 
   interface Props {
     brandName: string | Snippet;
     copyrightText?: string;
 
     // Arrays de datos
-    navLinks?: NavLink[];
-    socialLinks?: SocialLink[];
+    footerLinks?: FooterLinks;
+    socialLinks?: SocialLinks;
 
     // Créditos del desarrollador (Tú)
     developerName?: string;
@@ -32,7 +21,7 @@
   let {
     brandName,
     copyrightText = "Todos los derechos reservados.",
-    navLinks = [],
+    footerLinks = [],
     socialLinks = [],
     developerName = "HernandezDev", // Tu marca personal por defecto
     developerUrl = "https://www.linkedin.com/in/hernandezdev/",
@@ -62,9 +51,9 @@
         </p>
       </div>
 
-      {#if navLinks.length > 0}
+      {#if footerLinks.length > 0}
         <div class="flex gap-6 text-sm font-medium">
-          {#each navLinks as link}
+          {#each footerLinks as link}
             <a href={link.href} class="hover:text-white transition-colors">
               {link.label}
             </a>

@@ -12,7 +12,7 @@
   import IconInstagram from "~icons/lucide/instagram";
   import Footer from "$lib/components/layout/Footer.svelte";
   import Whatsapp from "$lib/components/layout/FloatingWhatsApp.svelte";
-  import type { Routes } from "$lib/types/navigation";
+  import type { Routes, FooterLinks, SocialLinks } from "$lib/types/navigation";
   const ROUTES: Routes = [
     { id: "home", label: "Inicio", href: "/#home", icon: IconHome },
     {
@@ -24,6 +24,21 @@
     { id: "about", label: "Nosotros", href: "/#about", icon: IconAbout },
     { id: "reviews", label: "Reseñas", href: "/#reviews", icon: IconReviews },
     { id: "contact", label: "Contacto", href: "/#contact", icon: IconContact },
+  ];
+  const FOOTER_LINKS: FooterLinks = [
+    { label: "Preguntas frecuentes", href: "/faq" },
+  ];
+  const SOCIAL_LINKS: SocialLinks = [
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/",
+      icon: IconInstagram,
+    },
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/",
+      icon: IconFacebook,
+    },
   ];
 
   // Constantes de estilo
@@ -59,17 +74,6 @@
 <Whatsapp />
 <Footer
   brandName="Aura Beauty"
-  navLinks={[{ label: "Preguntas frecuentes", href: "/faq" }]}
-  socialLinks={[
-    {
-      label: "Instagram",
-      href: "https://www.instagram.com/",
-      icon: IconInstagram,
-    },
-    {
-      label: "Facebook",
-      href: "https://www.facebook.com/",
-      icon: IconFacebook,
-    },
-  ]}
+  footerLinks={FOOTER_LINKS}
+  socialLinks={SOCIAL_LINKS}
 />
