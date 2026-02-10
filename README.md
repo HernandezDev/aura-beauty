@@ -200,6 +200,9 @@ Para los formularios, se utiliza una **estrategia híbrida**:
   }
 }
 ```
+## compatibilidad con cloudflare pages:
+
+añadir nodejs_compat a las compatibility flags en el panel de control de cloudflare pages
 
 
 © 2026 Aura Beauty Project
