@@ -201,12 +201,5 @@ Para los formularios, se utiliza una **estrategia híbrida**:
 }
 ```
 
-## problemas conocidos
-
-en en windows el archivo package-lock.json puede generar conflictos de dependencias al desplegar en cloudflare pages debido a diferencias en la resolución de paquetes entre sistemas operativos. Se recomienda ignorar este archivo en el control de versiones para evitar dichos conflictos y forzar la instalación de la versión correcta del runtime de workerd para windows ejecutando el siguiente comando:
-
-```
-npm install --no-save @cloudflare/workerd-windows-64
-```
 
 © 2026 Aura Beauty Project
