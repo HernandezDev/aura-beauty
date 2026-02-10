@@ -11,13 +11,13 @@ Visita el sitio: **[https://aura-beauty.pages.dev/](https://aura-beauty.pages.de
 ## 🏆 Puntuaciones Lighthouse (PageSpeed Insights)
 
 El sitio ha sido optimizado para alcanzar métricas de excelencia.
-_Auditoría realizada en Enero 2026._ [Ver reporte en vivo](https://pagespeed.web.dev/analysis/https-aura-beauty-pages-dev/f1nvxx6wqx?form_factor=mobile)
+_Auditoría realizada en Febrero 2026._ [Ver reporte en vivo](https://pagespeed.web.dev/analysis/https-aura-beauty-pages-dev/aeacz7z9lw?form_factor=mobile)
 
 | Categoría             | Móvil 📱 | Escritorio 💻 |
 | --------------------- | :------: | :-----------: |
 | 🟢 **SEO**            | **100**  |    **100**    |
 | 🟢 **Best Practices** | **100**  |    **100**    |
-| 🟢 **Performance**    |  **99**  |    **100**    |
+| 🟢 **Performance**    |  **98**  |    **100**    |
 | 🟢 **Accessibility**  |  **96**  |    **96**     |
 
 ## 🛠️ Tecnologías
