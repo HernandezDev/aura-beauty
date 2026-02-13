@@ -177,9 +177,7 @@
               {#if showIconsDesktop && route.icon}
                 {@const Icon = route.icon}
                 <div class="flex items-center gap-2">
-                  <Icon
-                    class="hidden lg:inline-block mr-2w-5 h-5 text-gray-300 shrink-0"
-                  />
+                  <Icon class="hidden lg:inline-block mr-2 w-5 h-5 shrink-0" />
                   <span class="relative z-10">{route.label}</span>
                 </div>
               {/if}
@@ -236,7 +234,7 @@
                 <div class="flex items-center gap-3">
                   {#if route.icon}
                     {@const Icon = route.icon}
-                    <Icon class="w-5 h-5 text-gray-300 shrink-0" />
+                    <Icon class="w-5 h-5 shrink-0" />
                   {/if}
 
                   <span class="relative z-10 font-medium text-base">
